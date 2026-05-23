@@ -1,0 +1,14 @@
+[Unit]
+Description=Jellyfin Auto-Discovery Responder
+After=network.target
+
+[Service]
+Type=simple
+Environment=FINDFIN_BIND_ADDR=0.0.0.0
+Environment=FINDFIN_SERVER_URL=http://jellyfin.example.com:8096
+Environment=FINDFIN_SERVER_ID=change-me
+Environment=FINDFIN_SERVER_NAME=Jellyfin
+ExecStart=/usr/local/bin/findfin
+
+[Install]
+WantedBy=multi-user.target
