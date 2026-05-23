@@ -4,10 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-Environment=FINDFIN_BIND_ADDR=0.0.0.0
-Environment=FINDFIN_SERVER_URL=http://jellyfin.example.com:8096
-Environment=FINDFIN_SERVER_ID=change-me
-Environment=FINDFIN_SERVER_NAME=Jellyfin
+# Optional, bind only to the specified IP
+#Environment=FINDFIN_BIND_ADDR=0.0.0.0
+Environment=FINDFIN_SERVER_URL=http://jellyfin.local:8096
+# Optional, sets the announces server url, otherwise will use the url above
+#Environment=FINDFIN_ANNOUNCE_URL=https://jellyfin.example.com
 ExecStart=/usr/local/bin/findfin
 
 [Install]
