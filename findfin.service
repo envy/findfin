@@ -1,6 +1,7 @@
 [Unit]
 Description=Jellyfin Auto-Discovery Responder
 After=network.target
+StartLimitIntervalSec=0
 
 [Service]
 Type=simple
@@ -10,6 +11,8 @@ Environment=FINDFIN_SERVER_URL=http://jellyfin.local:8096
 # Optional, sets the announces server url, otherwise will use the url above
 #Environment=FINDFIN_ANNOUNCE_URL=https://jellyfin.example.com
 ExecStart=/usr/local/bin/findfin
+Restart=always
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
